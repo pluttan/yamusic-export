@@ -1,0 +1,16 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Data (exported JSON and downloaded audio — too heavy for repo)
+data/*.json
+data/music/
+!data/.gitkeep
+
+# OS
+.DS_Store
+Thumbs.db
