@@ -1,14 +1,8 @@
-![Header](header.png)
-
 <div align="center">
 
 # yamusic-export
 
 **Yandex Music library exporter with ListenBrainz import**
-
-[![License](https://img.shields.io/badge/license-MIT-2C2C2C?style=for-the-badge&labelColor=1E1E1E)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10+-2C2C2C?style=for-the-badge&logo=python&labelColor=1E1E1E)]()
-[![Yandex Music](https://img.shields.io/badge/yandex-music-2C2C2C?style=for-the-badge&labelColor=1E1E1E)]()
 
 </div>
 
@@ -25,12 +19,24 @@ Dumps a Yandex Music account's liked tracks and playlists to JSON, downloads the
 
 ## ■ Stack
 
+<div align="center">
+
 | Component | Technology |
 |-----------|------------|
 | API Client | yandex-music (Python SDK) |
 | Tagging | mutagen (ID3, MP4) |
 | Import | ListenBrainz REST API |
 | Downloads | requests + tqdm |
+
+</div>
+
+## ■ How It Works
+
+```
+1. make export — fetches liked tracks and playlists via the Yandex Music SDK and saves them to structured JSON files under data/.
+2. make download — downloads each track as mp3/m4a, and writes ID3/MP4 tags (artist, title, album, year, cover art) into artist/album directory layout.
+3. import_lbz.py — submits the listening history to ListenBrainz as historical scrobbles in batches of 1000.
+```
 
 ## ■ Usage
 
