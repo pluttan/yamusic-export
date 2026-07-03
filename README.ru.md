@@ -1,14 +1,8 @@
-![Header](header.png)
-
 <div align="center">
 
 # yamusic-export
 
 **Экспортёр библиотеки Яндекс Музыки с импортом в ListenBrainz**
-
-[![License](https://img.shields.io/badge/license-MIT-2C2C2C?style=for-the-badge&labelColor=1E1E1E)](LICENSE)
-[![Python](https://img.shields.io/badge/python-3.10+-2C2C2C?style=for-the-badge&logo=python&labelColor=1E1E1E)]()
-[![Yandex Music](https://img.shields.io/badge/yandex-music-2C2C2C?style=for-the-badge&labelColor=1E1E1E)]()
 
 </div>
 
@@ -36,7 +30,15 @@
 
 </div>
 
-## ■ Запуск
+## ■ Как это работает
+
+```
+1. make export — получает лайкнутые треки и плейлисты через Yandex Music SDK и сохраняет их в структурированные JSON-файлы в папку data/.
+2. make download — скачивает каждый трек в mp3/m4a, записывает теги ID3/MP4 (исполнитель, название, альбом, год, обложка) с раскладкой по папкам исполнитель/альбом.
+3. import_lbz.py — отправляет историю прослушиваний в ListenBrainz как исторические скробблы пачками по 1000.
+```
+
+## ■ Использование
 
 ```bash
 make install        # создать venv, установить зависимости
@@ -48,6 +50,6 @@ make all            # install + export + download
 venv/bin/python import_lbz.py --token-file <path>
 ```
 
-## ■ License
+## ■ Лицензия
 
 MIT © [pluttan](https://github.com/pluttan)
